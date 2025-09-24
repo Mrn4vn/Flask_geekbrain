@@ -1,4 +1,5 @@
 from flask import Flask, g
+from werkzeug.exeptions import BadRequest
 
 app = Flask(__name__)
 
@@ -47,3 +48,26 @@ def process_after_request(response):
     response.headers["process-time"] = time() - g.start_time
   
   return response
+
+@app.route("/power/")
+def power_value():
+  x = request.args.get("x") or ""
+  y = request.args.get("y") or ""
+  if not (x.isdigit() and y.isdigit()):
+    app.logger.info("its invalid", x, y)
+    raise BadRequest("need valid")
+  x = int(x)
+  y = int(y)
+  result = x ** y
+  app.logger.debug("yeah it works", x, y, result)
+  return str(result)
+
+@app.route("/devide-by-zero/")
+def do_zero_division():
+  return 1/0
+
+@app.errorhandler(ZeroDivisionError)
+def handle_zero_division_error(error):
+  print(error)
+  app.logger.exeption("stop zero division traceback error")
+  return "never do so", 400
