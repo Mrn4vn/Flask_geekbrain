@@ -1,7 +1,12 @@
-from flask import Flask, g
+from flask import Flask, g, render_template
 from werkzeug.exeptions import BadRequest
 
 app = Flask(__name__)
+
+@app.route("/hello/")
+@app.route("/hello/")
+def hello(name=None):
+  return render_template("hello.html", name=name)
 
 @app.route("/")
 def index():
