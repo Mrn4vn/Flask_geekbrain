@@ -19,3 +19,9 @@ def user_details(user_id: int):
   except KeyError:
     raise NotFound(f"User #{user_id} and love doesn't exist")
   return render_template("users/details.html", user_id=user_id, user_name=user_name)
+
+@users_app.route("/", endpoint="list")
+...
+
+@users_app.route("/<int:user_id>/", endpoint="details")
+...
