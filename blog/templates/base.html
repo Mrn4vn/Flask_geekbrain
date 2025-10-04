@@ -1,18 +1,27 @@
 <!DOCKTYPE html>
 <html lang="en">
   <head>
+    <!-- Required meta tags -->
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
     <title>
       {% block title $}
         Base
       {$ endblock %}
     </title>
   </head>
-  <body>
-    <div>
-      {% block body %}
-        Hemlo, Base!
-      {% endblock %}
-    </div>
-  </body>
+
+  <div class="container">
+    <body>
+      <div>
+        {% block body %}
+          Hemlo, Base!
+        {% endblock %}
+      </div>
+    </body>
+  </div>
 </html>
