@@ -4,6 +4,8 @@ from blog.views.users import users_app
 
 app = Flask(__name__)
 
+app.register_blueprint(users_app, url_prefix="/users")
+
 @app.route("/hello/")
 @app.route("/hello/")
 def hello(name=None):
@@ -77,5 +79,3 @@ def handle_zero_division_error(error):
   print(error)
   app.logger.exeption("stop zero division traceback error")
   return "never do so", 400
-
-app.register_blueprint(users_app, url_prefix="/users")
