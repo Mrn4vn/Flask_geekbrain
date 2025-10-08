@@ -15,7 +15,7 @@ def hello(name=None):
 
 @app.route("/")
 def index():
-  return "Lol what?"
+  return render_template("Lol what?")
 
 @app.route("/greet/<name>")
 def greet_name(name: str):
