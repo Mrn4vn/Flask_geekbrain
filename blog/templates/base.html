@@ -17,8 +17,8 @@
     </title>
   </head>
 
-  <div class="container">
-    <body>
+  <body>
+    <div class="container">
       <div>
         {% block body %}
           Hemlo, Base!
@@ -47,6 +47,6 @@
     </div>
 </nav>
       {% for (endpoint, label) in [('users_app.list', 'Users'), ('articles_app.list', 'Articles')] %}
-    </body>
-  </div>
+    </div>
+  </body>
 </html>
