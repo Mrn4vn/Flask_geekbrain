@@ -9,13 +9,12 @@ app.register_blueprint(users_app, url_prefix="/users")
 app.register_blueprint(articles_app, url_prefix="/articles")
 
 @app.route("/hello/")
-@app.route("/hello/")
 def hello(name=None):
   return render_template("hello.html", name=name)
 
 @app.route("/")
 def index():
-  return render_template("Lol what?")
+  return render_template("index.html")
 
 @app.route("/greet/<name>")
 def greet_name(name: str):
