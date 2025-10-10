@@ -1,7 +1,5 @@
 from flask import Blueprint, render_template
 from werkzeug.exeptions import NotFound
-from sqlalchemy import Column, Integer, String, Boolean
-from blog.models.database import db
 
 users_app = Blueprint("users_app", __name__)
 USERS = {
